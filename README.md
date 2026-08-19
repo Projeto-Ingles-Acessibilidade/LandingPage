@@ -1,26 +1,40 @@
-# Library Game Showcase
+# Site de Libras
 
-crie essa pagina web de acordo com a referencia na imagem em anexo, programe usando html, css e javascript se necessario para interações. O objetivo desse site é ser uma landing page / catalogo dos jogos produzidos pela minha sala, par auma materia optativa de libras
+Plataforma criada para divulgar os projetos desenvolvidos pela turma do **5º ano de ADS AMS da Fatec Itu**. O site reúne jogos e projetos da turma em um só lugar, permitindo que qualquer usuário navegue e acesse cada projeto individualmente através de um link dedicado.
 
-This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://sign-game-gallery.lovable.app
+---
 
-## Build with Lovable
+## Sobre o projeto
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6a25d361-e409-4d3e-a7e7-0982187d8b6d).
+O **Site de Libras** funciona como uma vitrine centralizada para os trabalhos da turma, facilitando o acesso e a divulgação de cada iniciativa. Ao acessar a página inicial, o usuário encontra uma lista de projetos e jogos, podendo clicar em qualquer um deles para ser redirecionado à respectiva página.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Funcionalidades
 
-## Development
+- Listagem centralizada de todos os projetos e jogos da turma
+- Navegação direta para a página de cada projeto
+- Acesso facilitado aos jogos desenvolvidos
+- Responsivo e acessivel para todos os tipos de dispositivos
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Imagens do site
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+<img width="1895" height="1079" alt="image" src="https://github.com/user-attachments/assets/4372cd60-52fb-4d57-9b8b-8c353bf0b534" />
+
+<img width="1896" height="1079" alt="image" src="https://github.com/user-attachments/assets/b942371d-6fa9-43a4-ad16-fe6052250a34" />
+
+
+
+## Tecnologias utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- TyperScript
+
+
+## Equipe
+
+Projeto desenvolvido pela turma do 5º ano de ADS AMS — Fatec Itu.
+
+
+---
