@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const secoes = ["inicio", "projetos", "sobre", "comunidade", "contato"];
+const secoes = ["inicio", "projetos", "sobre"];
 
 function useSecaoAtiva() {
   const [ativa, setAtiva] = useState("inicio");
@@ -80,17 +80,18 @@ function CardJogo({
   const tom =
     jogo.tom === "mint"
       ? {
-          bg: "bg-mint-soft",
-          text: "text-mint",
-          border: "border-mint/30",
-          hover: "hover:bg-mint-soft",
-        }
+        bg: "bg-mint-soft",
+        text: "text-mint",
+        border: "border-mint/30",
+        hover: "hover:bg-mint-soft",
+      }
       : {
-          bg: "bg-lilac-soft",
-          text: "text-lilac",
-          border: "border-lilac/30",
-          hover: "hover:bg-lilac-soft",
-        };
+        bg: "bg-lilac-soft",
+        text: "text-lilac",
+        border: "border-lilac/30",
+        hover: "hover:bg-lilac-soft",
+      };
+
 
   return (
     <article
@@ -138,11 +139,11 @@ function CardJogo({
         >
           {baixado ? (
             <>
-              <Check className="size-4" aria-hidden /> Download iniciado
+              <Check className="size-4" aria-hidden /> Indo para o jogo
             </>
           ) : (
             <>
-              <Download className="size-4" aria-hidden /> Baixar Projeto
+              <Download className="size-4" aria-hidden /> Jogar
             </>
           )}
         </button>
@@ -158,6 +159,7 @@ function ModalJogo({ jogo, onClose }: { jogo: Jogo; onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  
   return (
     <div
       className="fixed inset-0 z-60 flex items-center justify-center bg-ink/50 p-4 backdrop-blur-sm"
@@ -213,6 +215,9 @@ function Index() {
   const baixar = (numero: string) =>
     setBaixados((prev) => (prev.includes(numero) ? prev : [...prev, numero]));
 
+    const [apoiadores, setApoiadores] = useState(0);
+
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader active={ativa} />
@@ -242,14 +247,9 @@ function Index() {
                   href="#projetos"
                   className="inline-flex items-center gap-2 rounded-xl bg-mint px-5 py-3 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
                 >
-                  <Download className="size-4" aria-hidden /> Explorar Projetos
+                  <Play className="size-4" aria-hidden /> Explorar Projetos
                 </a>
-                <a
-                  href="#sobre"
-                  className="inline-flex items-center gap-2 rounded-xl border border-mint/40 bg-background px-5 py-3 text-sm font-bold text-mint transition-colors hover:bg-mint-soft"
-                >
-                  <Play className="size-4" aria-hidden /> Assistir ao Vídeo
-                </a>
+
               </div>
             </div>
 
@@ -299,11 +299,7 @@ function Index() {
             ))}
           </div>
 
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            {baixados.length > 0
-              ? `${baixados.length} de ${total} projetos baixados. Obrigado por apoiar!`
-              : "Clique em um jogo para ver os detalhes do projeto."}
-          </p>
+
         </section>
 
         {/* SOBRE */}
@@ -311,16 +307,15 @@ function Index() {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2">
             <div>
               <h2 className="font-display text-3xl font-extrabold text-ink">
-                Feito na optativa de Libras
+                Feito pela turma do 5º ADS AMS
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Somos uma turma da matéria optativa de Libras. Durante o semestre estudamos a Língua
-                Brasileira de Sinais, a cultura surda e os desafios de acessibilidade — e
-                transformamos esse aprendizado em jogos digitais gratuitos.
+                Fomos convidados pela professora Lillian, a participar desse projeto de trazer maior
+                visibilidade à comunidade de pessoas não ouvintes. Inserindo eles mais próximos da sociedade,
+                e a sociedade mais próxima deles por meio de jogos interativos.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Cada projeto foi pensado para ser usado em sala de aula, em casa ou em oficinas, por
-                pessoas surdas e ouvintes juntas.
+                Cada projeto foi pensado para trazer mais conhecimento e inclusão.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -345,61 +340,55 @@ function Index() {
         {/* COMUNIDADE */}
         <section id="comunidade" className="mx-auto max-w-6xl px-5 py-16">
           <div className="flex flex-col items-center gap-6 rounded-3xl border border-lilac/25 bg-lilac-soft/50 p-8 md:flex-row md:justify-between md:p-10">
+
             <div className="flex items-start gap-4">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-background text-lilac shadow-soft">
                 <Heart className="size-6" aria-hidden />
               </span>
+
               <div>
                 <h2 className="font-display text-xl font-extrabold text-ink">
                   Juntos por uma sociedade mais inclusiva
                 </h2>
+
                 <p className="mt-1.5 max-w-lg text-sm text-muted-foreground">
-                  Acreditamos em um mundo onde a comunicação não tenha barreiras. Baixe, compartilhe
-                  e faça parte dessa transformação.
+                  Acreditamos em um mundo onde a comunicação não tenha barreiras.
+                  Baixe, compartilhe e faça parte dessa transformação.
                 </p>
+
+                {/* CONTADOR */}
+                <div className="mt-5">
+                  <p className="text-sm font-semibold text-muted-foreground">
+                    Já apoiaram esta causa:
+                  </p>
+
+                  <p className="mt-1 text-4xl font-black text-lilac">
+                    {apoiadores.toLocaleString("pt-BR")}
+                    <span className="ml-2 text-base font-bold text-ink">
+                      {apoiadores === 1 ? "pessoa" : "pessoas"}
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
-            <a
-              href="#contato"
-              className="inline-flex items-center gap-2 rounded-xl border border-lilac/40 bg-background px-6 py-3 text-sm font-bold text-lilac transition-transform hover:-translate-y-0.5"
+
+            {/* BOTÃO */}
+            <button
+              type="button"
+              onClick={() => setApoiadores((atual) => atual + 1)}
+              className="inline-flex items-center gap-2 rounded-xl border border-lilac/40 bg-background px-6 py-3 text-sm font-bold text-lilac shadow-soft transition-all hover:-translate-y-0.5 hover:bg-lilac hover:text-white active:scale-95"
             >
-              <Heart className="size-4" aria-hidden /> Apoie esta Causa
-            </a>
+              <Heart className="size-4" aria-hidden />
+              Apoie esta Causa
+            </button>
+
           </div>
         </section>
 
-        {/* CONTATO */}
-        <section id="contato" className="border-t border-border bg-muted/40 py-16">
-          <div className="mx-auto max-w-6xl px-5 text-center">
-            <h2 className="font-display text-3xl font-extrabold text-ink">Fale com a turma</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-              Quer usar os jogos na sua escola ou sugerir melhorias? A gente adoraria saber.
-            </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <a
-                href="mailto:sinaisqueconectam@escola.edu.br"
-                className="inline-flex items-center gap-2 rounded-xl bg-mint px-5 py-3 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-              >
-                <Mail className="size-4" aria-hidden /> Enviar e-mail
-              </a>
-              <a
-                href="#projetos"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-5 py-3 text-sm font-bold text-ink transition-colors hover:bg-muted"
-              >
-                <Instagram className="size-4" aria-hidden /> @sinaisqueconectam
-              </a>
-            </div>
-          </div>
-        </section>
+       
       </main>
 
-      <footer className="border-t border-border py-8">
-        <p className="text-center text-xs text-muted-foreground">
-          Sinais que Conectam — projeto estudantil da matéria optativa de Libras.
-        </p>
-      </footer>
 
-      {detalhe && <ModalJogo jogo={detalhe} onClose={() => setDetalhe(null)} />}
     </div>
   );
 }

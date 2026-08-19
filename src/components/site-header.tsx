@@ -5,8 +5,6 @@ const links = [
   { label: "Início", href: "#inicio" },
   { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
-  { label: "Comunidade", href: "#comunidade" },
-  { label: "Contato", href: "#contato" },
 ];
 
 export function SiteHeader({ active }: { active: string }) {
@@ -46,12 +44,7 @@ export function SiteHeader({ active }: { active: string }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#projetos"
-            className="hidden items-center gap-2 rounded-xl bg-mint px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5 sm:inline-flex"
-          >
-            <Download className="size-4" aria-hidden /> Baixar Todos
-          </a>
+         
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
