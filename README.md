@@ -26,7 +26,6 @@ O **Site de Libras** funciona como uma vitrine centralizada para os trabalhos da
 
 ## Tecnologias utilizadas
 
-- HTML5
 - CSS3
 - JavaScript
 - TyperScript
