@@ -22,7 +22,7 @@ import heroImg from "@/assets/hero-libras.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sinais que Conectam | Jogos em Libras da nossa turma" },
+      { title: "Sinais que Conectam " },
       {
         name: "description",
         content:
