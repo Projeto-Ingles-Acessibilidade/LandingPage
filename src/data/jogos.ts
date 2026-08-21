@@ -1,4 +1,4 @@
-import sinaisEmAcao from "@/assets/jogo-sinais-em-acao.jpg";
+import desafioComunicacao from "@/assets/desafioComunicacao.jpg";
 import quebraCabeca from "@/assets/jogo-quebra-cabeca.jpg";
 import conversa from "@/assets/jogo-conversa.jpg";
 import historias from "@/assets/jogo-historias.jpg";
@@ -11,17 +11,19 @@ export type Jogo = {
   imagem: string;
   tom: "mint" | "lilac";
   tags: string[];
+  link: string;
 };
 
 export const jogos: Jogo[] = [
   {
     numero: "01",
-    titulo: "Sinais em Ação",
+    titulo: "Desafio da Comunicação",
     descricao:
-      "Jogo educativo que ensina Libras de forma divertida e interativa, com rodadas curtas para praticar todos os dias.",
-    imagem: sinaisEmAcao,
+      "Assista ao vídeo sem áudio e tente descobrir o que foi falado. Monte a frase com as palavras disponíveis e envie sua resposta.",
+    imagem: desafioComunicacao,
     tom: "mint",
-    tags: ["Alfabeto", "Iniciante"],
+    tags: ["Quiz", "Leitura Labial"],
+    link: "https://projeto-ingles-acessibilidade.github.io/Desafio-da-Comunicacao/",
   },
   {
     numero: "02",
@@ -31,6 +33,7 @@ export const jogos: Jogo[] = [
     imagem: quebraCabeca,
     tom: "lilac",
     tags: ["Vocabulário", "Memória"],
+    link: "https://docs.google.com/document/d/1TkenqD_ETDKl2ds3NEgFwS4CTYoZlIDhZGbddxWUcG4/edit?tab=t.0",
   },
   {
     numero: "03",
@@ -40,6 +43,7 @@ export const jogos: Jogo[] = [
     imagem: conversa,
     tom: "mint",
     tags: ["Diálogo", "Cotidiano"],
+    link: "https://projeto-ingles-acessibilidade.github.io/Desafio-da-Comunicacao/",
   },
   {
     numero: "04",
@@ -49,6 +53,7 @@ export const jogos: Jogo[] = [
     imagem: historias,
     tom: "lilac",
     tags: ["Narrativa", "Infantil"],
+    link: "https://projeto-ingles-acessibilidade.github.io/Desafio-da-Comunicacao/",
   },
   {
     numero: "05",
@@ -58,5 +63,6 @@ export const jogos: Jogo[] = [
     imagem: desafio,
     tom: "mint",
     tags: ["Quiz", "Avançado"],
+    link: "https://projeto-ingles-acessibilidade.github.io/Desafio-da-Comunicacao/",
   },
 ];

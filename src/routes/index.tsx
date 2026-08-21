@@ -80,18 +80,17 @@ function CardJogo({
   const tom =
     jogo.tom === "mint"
       ? {
-        bg: "bg-mint-soft",
-        text: "text-mint",
-        border: "border-mint/30",
-        hover: "hover:bg-mint-soft",
-      }
+          bg: "bg-mint-soft",
+          text: "text-mint",
+          border: "border-mint/30",
+          hover: "hover:bg-mint-soft",
+        }
       : {
-        bg: "bg-lilac-soft",
-        text: "text-lilac",
-        border: "border-lilac/30",
-        hover: "hover:bg-lilac-soft",
-      };
-
+          bg: "bg-lilac-soft",
+          text: "text-lilac",
+          border: "border-lilac/30",
+          hover: "hover:bg-lilac-soft",
+        };
 
   return (
     <article
@@ -112,7 +111,7 @@ function CardJogo({
           className="aspect-[5/4] w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span
-          className={`absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-background/90 text-xs font-extrabold ${tom.text}`}
+          className={`absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-background/90 text-xs font-extrabold shadow-xl ${tom.text}`}
         >
           {jogo.numero}
         </span>
@@ -132,21 +131,25 @@ function CardJogo({
           ))}
         </div>
 
-        <button
-          type="button"
+        <a
+          href={jogo.link}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={onBaixar}
           className={`mt-4 mb-1 inline-flex w-full items-center justify-center gap-2 rounded-xl border ${tom.border} px-3 py-2.5 text-sm font-bold ${tom.text} ${tom.hover} transition-colors`}
         >
           {baixado ? (
             <>
-              <Check className="size-4" aria-hidden /> Indo para o jogo
+              <Check className="size-4" aria-hidden="true" />
+              Jogar
             </>
           ) : (
             <>
-              <Download className="size-4" aria-hidden /> Jogar
+              <Check className="size-4" aria-hidden="true" />
+              Jogar
             </>
           )}
-        </button>
+        </a>
       </div>
     </article>
   );
@@ -159,7 +162,6 @@ function ModalJogo({ jogo, onClose }: { jogo: Jogo; onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  
   return (
     <div
       className="fixed inset-0 z-60 flex items-center justify-center bg-ink/50 p-4 backdrop-blur-sm"
@@ -215,8 +217,7 @@ function Index() {
   const baixar = (numero: string) =>
     setBaixados((prev) => (prev.includes(numero) ? prev : [...prev, numero]));
 
-    const [apoiadores, setApoiadores] = useState(0);
-
+  const [apoiadores, setApoiadores] = useState(0);
 
   return (
     <div className="min-h-screen bg-background">
@@ -234,9 +235,7 @@ function Index() {
               </div>
               <h1 className="mt-5 font-display text-4xl leading-[1.08] font-extrabold text-ink sm:text-5xl">
                 Tecnologia que inclui,
-                <span className="mt-1 block text-brand-gradient">
-                  visibilidade que transforma.
-                </span>
+                <span className="mt-1 block text-brand-gradient">visibilidade que transforma.</span>
               </h1>
               <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
                 Conheça e baixe os projetos desenvolvidos pela nossa turma para promover a
@@ -249,7 +248,6 @@ function Index() {
                 >
                   <Play className="size-4" aria-hidden /> Explorar Projetos
                 </a>
-
               </div>
             </div>
 
@@ -298,8 +296,6 @@ function Index() {
               />
             ))}
           </div>
-
-
         </section>
 
         {/* SOBRE */}
@@ -311,8 +307,8 @@ function Index() {
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 Fomos convidados pela professora Lillian, a participar desse projeto de trazer maior
-                visibilidade à comunidade de pessoas não ouvintes. Inserindo eles mais próximos da sociedade,
-                e a sociedade mais próxima deles por meio de jogos interativos.
+                visibilidade à comunidade de pessoas não ouvintes. Inserindo eles mais próximos da
+                sociedade, e a sociedade mais próxima deles por meio de jogos interativos.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Cada projeto foi pensado para trazer mais conhecimento e inclusão.
@@ -320,7 +316,11 @@ function Index() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: GraduationCap, t: "Educativo", d: "Conteúdo alinhado ao estudo de Libras." },
+                {
+                  icon: GraduationCap,
+                  t: "Educativo",
+                  d: "Conteúdo alinhado ao estudo de Libras.",
+                },
                 { icon: Accessibility, t: "Acessível", d: "Interfaces visuais e sem barreiras." },
                 { icon: Sparkles, t: "Interativo", d: "Aprender brincando, em rodadas curtas." },
                 { icon: Heart, t: "Gratuito", d: "Todos os projetos livres para baixar." },
@@ -340,7 +340,6 @@ function Index() {
         {/* COMUNIDADE */}
         <section id="comunidade" className="mx-auto max-w-6xl px-5 py-16">
           <div className="flex flex-col items-center gap-6 rounded-3xl border border-lilac/25 bg-lilac-soft/50 p-8 md:flex-row md:justify-between md:p-10">
-
             <div className="flex items-start gap-4">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-background text-lilac shadow-soft">
                 <Heart className="size-6" aria-hidden />
@@ -352,8 +351,8 @@ function Index() {
                 </h2>
 
                 <p className="mt-1.5 max-w-lg text-sm text-muted-foreground">
-                  Acreditamos em um mundo onde a comunicação não tenha barreiras.
-                  Baixe, compartilhe e faça parte dessa transformação.
+                  Acreditamos em um mundo onde a comunicação não tenha barreiras. Baixe, compartilhe
+                  e faça parte dessa transformação.
                 </p>
 
                 {/* CONTADOR */}
@@ -381,14 +380,9 @@ function Index() {
               <Heart className="size-4" aria-hidden />
               Apoie esta Causa
             </button>
-
           </div>
         </section>
-
-       
       </main>
-
-
     </div>
   );
 }
